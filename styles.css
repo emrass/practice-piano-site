@@ -1,0 +1,685 @@
+@font-face {
+  font-family: 'Newsreader';
+  src: url('./fonts/newsreader-latin-opsz-normal.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('./fonts/caveat-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('./fonts/caveat-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/*
+ * Manuscript paper and a teacher's pencil: the page is the app's own paper and ink; the one
+ * loud element is the hand-written feedback over a real score in the hero.
+ */
+:root {
+  --paper: #f7f2e7;
+  --sheet: #fcf9f2;
+  --ink: #231d19;
+  --graphite: #5b544c;
+  --faint: #8a8075;
+  --rule: #ddd1bb;
+  --oxblood: #8c2f22;
+  --oxblood-deep: #6e2318;
+  --leaf: #2f7d4f;
+  --pencil: #57514a;
+  --serif: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --hand: 'Caveat', 'Bradley Hand', 'Segoe Print', cursive;
+  --measure: 34em;
+  --gutter: clamp(20px, 4vw, 48px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--oxblood);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--oxblood-deep);
+}
+
+:focus-visible {
+  outline: 3px solid var(--oxblood);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: 1.08;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  letter-spacing: -0.015em;
+  max-width: 12em;
+}
+
+h2 {
+  font-size: clamp(30px, 3.8vw, 46px);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 27px;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 14px;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.skip:focus {
+  left: 8px;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 22px var(--gutter);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.brand .tld {
+  color: var(--oxblood);
+}
+
+.site-header nav {
+  display: flex;
+  gap: 24px;
+  margin-left: auto;
+  font-size: 17px;
+}
+
+.site-header nav a {
+  color: var(--graphite);
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  color: var(--ink);
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 8px;
+  background: var(--oxblood);
+  color: #fdf7ee;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.button:hover {
+  background: var(--oxblood-deep);
+  color: #fdf7ee;
+}
+
+.button-small {
+  min-height: 40px;
+  padding: 0 18px;
+  font-size: 16px;
+}
+
+.button-quiet {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--rule);
+}
+
+.button-quiet:hover {
+  background: var(--sheet);
+  color: var(--ink);
+}
+
+/* Sections share one rhythm of spacing. */
+main > section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(56px, 9vw, 120px) var(--gutter) 0;
+}
+
+.section-title {
+  margin-bottom: clamp(32px, 5vw, 64px);
+  max-width: 16em;
+}
+
+/* Hero */
+main > .hero {
+  padding-top: clamp(24px, 4vw, 48px);
+}
+
+.hero-text {
+  display: grid;
+  gap: 22px;
+}
+
+.lede {
+  font-size: clamp(19px, 1.8vw, 22px);
+  color: var(--graphite);
+  max-width: var(--measure);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.fineprint {
+  font-size: 16px;
+  color: var(--faint);
+  max-width: var(--measure);
+}
+
+/* The score with a teacher's pencil marks. */
+.score-strip {
+  margin: clamp(32px, 4vw, 48px) calc(-1 * var(--gutter)) 0;
+}
+
+.score-scroll {
+  overflow-x: auto;
+  background: var(--sheet);
+  border-block: 1px solid var(--rule);
+  scrollbar-width: thin;
+}
+
+.score-sheet {
+  position: relative;
+  min-width: 880px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 18px 0 6px;
+}
+
+.marks {
+  position: absolute;
+  inset: 18px 0 6px;
+  width: 100%;
+  height: calc(100% - 24px);
+  overflow: visible;
+}
+
+.mark {
+  fill: none;
+  stroke: var(--pencil);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 0;
+  opacity: 0.85;
+}
+
+.mark-red {
+  stroke: var(--oxblood);
+}
+
+.mark-green {
+  stroke: var(--leaf);
+}
+
+.note {
+  font-family: var(--hand);
+  font-weight: 500;
+  font-size: 44px;
+  fill: var(--pencil);
+}
+
+.note-red {
+  fill: var(--oxblood);
+  font-weight: 700;
+}
+
+.note-green {
+  fill: var(--leaf);
+  font-weight: 700;
+}
+
+.score-strip figcaption {
+  font-size: 15px;
+  color: var(--faint);
+  padding: 12px var(--gutter) 0;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* One orchestrated moment: the pencil marks are written in after the page loads. */
+@media (prefers-reduced-motion: no-preference) {
+  .mark {
+    animation: draw 0.9s cubic-bezier(0.4, 0.1, 0.3, 1) both;
+    stroke-dashoffset: 420;
+  }
+  .note {
+    animation: ink 0.5s ease-out both;
+  }
+  .marks > :nth-child(1) {
+    animation-delay: 0.5s;
+  }
+  .marks > :nth-child(2) {
+    animation-delay: 1.2s;
+  }
+  .marks > :nth-child(3) {
+    animation-delay: 1.9s;
+  }
+  .marks > :nth-child(4) {
+    animation-delay: 2.5s;
+  }
+  .marks > :nth-child(5) {
+    animation-delay: 2.8s;
+  }
+  .marks > :nth-child(6) {
+    animation-delay: 3.3s;
+  }
+  .marks > :nth-child(7) {
+    animation-delay: 3.6s;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Screenshots sit on the page like prints on a desk. */
+.shot {
+  margin: 0;
+}
+
+.shot img {
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  box-shadow: 0 34px 60px -44px rgba(74, 46, 20, 0.55);
+  background: var(--sheet);
+}
+
+.shot figcaption {
+  font-size: 15px;
+  color: var(--faint);
+  margin-top: 10px;
+}
+
+/* Feedback */
+.feedback {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.feedback-text {
+  display: grid;
+  gap: 22px;
+}
+
+.feedback-text > p {
+  color: var(--graphite);
+  max-width: var(--measure);
+}
+
+.hears {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 28px;
+  margin: 10px 0 0;
+}
+
+.hears dt {
+  font-weight: 600;
+  font-size: 20px;
+  border-top: 1.5px solid var(--ink);
+  padding-top: 10px;
+}
+
+.hears dd {
+  margin: 4px 0 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--graphite);
+}
+
+.feedback-shots {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+
+.shot-card img {
+  max-width: min(560px, 100%);
+}
+
+.feedback-shots .shot-card:nth-child(2) {
+  margin-left: clamp(0px, 6vw, 72px);
+}
+
+/* Lessons */
+.lesson {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.lesson + .lesson {
+  margin-top: clamp(64px, 9vw, 112px);
+}
+
+.lesson-flip {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+}
+
+.lesson-flip .lesson-text {
+  order: 2;
+}
+
+.lesson-text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.lesson-text p {
+  color: var(--graphite);
+}
+
+.lesson-text ul {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  font-size: 17px;
+}
+
+.lesson-text li {
+  padding-left: 22px;
+  position: relative;
+}
+
+/* A small note head as the list mark. */
+.lesson-text li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 11px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+  transform: rotate(-22deg);
+}
+
+.lesson-text b {
+  font-weight: 600;
+}
+
+/* Your piano */
+.piano-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.piano-item {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.piano-item h3 {
+  font-size: 23px;
+}
+
+.piano-item p {
+  color: var(--graphite);
+  font-size: 17px;
+}
+
+.piano .shot-strip {
+  margin-top: clamp(32px, 5vw, 56px);
+  max-width: 920px;
+}
+
+/* Progress */
+.progress {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+
+.progress-text {
+  display: grid;
+  gap: 18px;
+  position: sticky;
+  top: 24px;
+}
+
+.progress-text p {
+  color: var(--graphite);
+}
+
+.progress-shots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.progress-shots img {
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  box-shadow: 0 30px 50px -40px rgba(74, 46, 20, 0.55);
+}
+
+.progress-shots img:nth-child(2) {
+  margin-top: 48px;
+}
+
+/* Principles */
+.principle-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px clamp(28px, 5vw, 64px);
+  max-width: 980px;
+}
+
+.principle-list p {
+  color: var(--graphite);
+  font-size: 18px;
+}
+
+.principle-list b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.principles .more {
+  margin-top: 32px;
+  font-size: 17px;
+  color: var(--graphite);
+}
+
+/* Yours */
+.yours {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.yours > div {
+  display: grid;
+  gap: 18px;
+}
+
+.yours p {
+  color: var(--graphite);
+}
+
+/* Closing */
+main > .closing {
+  display: grid;
+  gap: 28px;
+  justify-items: start;
+  padding-bottom: clamp(72px, 10vw, 128px);
+}
+
+.closing h2 {
+  font-size: clamp(34px, 5vw, 60px);
+  max-width: 14em;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px var(--gutter) 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 16px;
+  color: var(--faint);
+}
+
+.site-footer p {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+/* Narrow screens */
+@media (max-width: 960px) {
+  .feedback,
+  .lesson,
+  .lesson-flip,
+  .progress,
+  .yours {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lesson-flip .lesson-text {
+    order: 0;
+  }
+  .progress-text {
+    position: static;
+  }
+  .piano-grid,
+  .principle-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .feedback-shots .shot-card:nth-child(2) {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header nav {
+    display: none;
+  }
+  .site-header .button-small {
+    margin-left: auto;
+  }
+  .brand {
+    font-size: 17px;
+  }
+  .hears {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .progress-shots {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+  .progress-shots img:nth-child(2) {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>practice-piano.com: sight reading, ear, rhythm and scales practice for your digital piano</title>
+    <meta
+      name="description"
+      content="Fresh exercises for sight reading, ear training, rhythm and scales, played on your own MIDI piano. Every note is scored, with feedback on timing, evenness, thumb crossings and hand independence. Free, no account."
+    />
+    <meta name="theme-color" content="#f7f2e7" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preload" href="./fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/caveat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://practice-piano.com/" />
+    <meta property="og:title" content="practice-piano.com: practice that listens" />
+    <meta property="og:description" content="Sight reading, ear training, rhythm and scales on your own MIDI piano, with feedback a teacher would give." />
+    <meta property="og:image" content="https://practice-piano.com/img/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="practice-piano.com home">
+        <img src="./favicon.svg" alt="" width="28" height="28" />
+        <span>practice-piano<span class="tld">.com</span></span>
+      </a>
+      <nav aria-label="Sections">
+        <a href="#feedback">Feedback</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#piano">Your piano</a>
+        <a href="#progress">Progress</a>
+      </nav>
+      <a class="button button-small" href="https://app.practice-piano.com/">Open the app</a>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Piano practice that listens like a teacher.</h1>
+          <p class="lede">
+            Fresh exercises for sight reading, ear training, rhythm and scales, played on your own digital piano. Every note comes in over MIDI and comes
+            back with the things a teacher would point out: the thumb that arrives late, the off-beat you rush, the hand that drags behind the other.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://app.practice-piano.com/">Open the app</a>
+            <a class="button button-quiet" href="#feedback">See what it hears</a>
+          </div>
+          <p class="fineprint">Free, no account. Works in Chrome and Edge with any USB or Bluetooth MIDI keyboard, and as an app for iPad and Mac.</p>
+        </div>
+
+        <figure class="score-strip" aria-labelledby="strip-caption">
+          <div class="score-scroll">
+            <div class="score-sheet">
+              <img
+                src="./img/hero-scale.webp"
+                width="2000"
+                height="461"
+                alt="D major scale, two octaves, hands together, with fingering numbers. Played notes are green; the playhead is in bar three."
+              />
+              <svg class="marks" viewBox="0 0 2000 463" aria-hidden="true">
+                <path class="mark mark-red" d="M398 160 C 380 132, 432 118, 446 146 C 458 172, 430 208, 404 196 C 384 186, 386 162, 404 152" />
+                <text class="note note-red" x="236" y="256">thumb under, 43 ms late</text>
+                <path class="mark" d="M1364 361 C 1346 333, 1398 319, 1410 347 C 1422 373, 1394 409, 1368 397 C 1348 387, 1350 363, 1368 353" />
+                <text class="note" x="1090" y="262">same spot, coming down</text>
+                <path class="mark" d="M1424 280 C 1412 298, 1400 314, 1390 330" />
+                <text class="note note-green" x="1610" y="250">clean run: +4 bpm</text>
+                <path class="mark mark-green" d="M1606 262 C 1680 270, 1760 268, 1846 258" />
+              </svg>
+            </div>
+          </div>
+          <figcaption id="strip-caption">A real run of the D major scale, with the app’s own feedback written in.</figcaption>
+        </figure>
+      </section>
+
+      <section id="feedback" class="feedback">
+        <div class="feedback-text">
+          <h2>It hears what a teacher hears</h2>
+          <p>
+            Right notes are only the start. After every run you get a short, specific account of how you played it, in milliseconds and in plain words.
+          </p>
+          <dl class="hears">
+            <div>
+              <dt>Timing</dt>
+              <dd>Every note against the beat, with your Bluetooth and speaker delay measured and taken out first.</dd>
+            </div>
+            <div>
+              <dt>Evenness of touch</dt>
+              <dd>How much your key velocity varies across a scale, and whether the thumb lands heavier than the other fingers.</dd>
+            </div>
+            <div>
+              <dt>Hand changes</dt>
+              <dd>Timing bumps that recur at the same place in every octave, named by finger and crossing: thumb under, or finger over.</dd>
+            </div>
+            <div>
+              <dt>Two hands at once</dt>
+              <dd>How far apart your hands land when they should play together, and each hand’s timing on its own.</dd>
+            </div>
+            <div>
+              <dt>Rushing and dragging</dt>
+              <dd>Your average lean ahead of or behind the beat, per rhythm figure, so you know it is the off-beat eighth you rush.</dd>
+            </div>
+            <div>
+              <dt>Keeping the pulse</dt>
+              <dd>The metronome falls silent for whole bars; the app measures how far you drift without it.</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="feedback-shots">
+          <figure class="shot shot-card">
+            <img
+              src="./img/scales-feedback.webp"
+              width="960"
+              height="661"
+              loading="lazy"
+              alt="Scale results: 100% notes, 100% timing, touch evenness ±17%, hands 17 ms apart, tempo up from 64 to 68 bpm, timing bumps at the thumb crossings, and a note that the thumb plays louder than the other fingers."
+            />
+            <figcaption>After a two-octave D major scale, hands together.</figcaption>
+          </figure>
+          <figure class="shot shot-card">
+            <img
+              src="./img/rhythm-pulse.webp"
+              width="960"
+              height="400"
+              loading="lazy"
+              alt="Rhythm results: 100% hits, 98% timing, tendency 40 ms early, drift when silent 64 ms rushing."
+            />
+            <figcaption>Rhythm, Pulse task: fine with the click, rushing without it.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="lessons" class="lessons">
+        <h2 class="section-title">Four ways to practise, one skill at a time</h2>
+
+        <article class="lesson">
+          <div class="lesson-text">
+            <h3>Sight reading</h3>
+            <p>
+              A new passage every time, written for your level: from a single middle C up to both hands in keys with six sharps or flats,
+              with chords and syncopation. Play it at your own pace with the cursor waiting for you, or in time with a metronome and a moving playhead.
+            </p>
+            <ul>
+              <li>One difficulty slider from 1 to 100, with key, meter, rhythm and tempo there to override.</li>
+              <li>Notes you keep missing or reach slowly come back more often in weak-spot practice.</li>
+              <li>Clean engraving with note names, chords and both hands lined up beat for beat.</li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img src="./img/sight-flow.webp" width="1800" height="1388" loading="lazy" alt="Sight reading in Flow mode: a grand-staff passage in A minor with played notes in green, a playhead, and the matching keys lit on the on-screen piano." />
+          </figure>
+        </article>
+
+        <article class="lesson lesson-flip">
+          <div class="lesson-text">
+            <h3>Ear training</h3>
+            <p>
+              Listen to a short phrase and play it back. Notes appear on the staff as you find them, so you learn to hear and to read at the same
+              time. It starts with two neighbouring notes and grows into melodies in new keys, harmonic intervals and chords.
+            </p>
+            <ul>
+              <li>Replay as often as you need; a hint shows the next note.</li>
+              <li>A cadence sets the key before phrases that give you no starting note.</li>
+              <li>Intervals you miss most are featured until they stick.</li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img src="./img/ear.webp" width="1800" height="1388" loading="lazy" alt="Ear training: three notes found and shown on the staff, two more hidden behind question marks." />
+          </figure>
+        </article>
+
+        <article class="lesson">
+          <div class="lesson-text">
+            <h3>Rhythm</h3>
+            <p>
+              Rhythm without the notes in the way. Each hand taps its own key, so the app can tell your hands apart: one keeps the beat while the
+              other syncopates, or both fill each other’s gaps, up to four against three.
+            </p>
+            <ul>
+              <li><b>Read</b> a rhythm and play it with the metronome.</li>
+              <li><b>Echo</b> a bar you have just heard; the notation appears after you answer.</li>
+              <li><b>Pulse</b> keeps going through silent bars and shows how far you drift.</li>
+            </ul>
+          </div>
+          <figure class="shot shot-strip">
+            <img src="./img/rhythm-hands.webp" width="2000" height="446" loading="lazy" alt="Two one-line rhythm staves, right and left hand, with sixteenth notes that alternate between the hands." />
+            <figcaption>Interlocking hands: the right hand plays in the left hand’s rests.</figcaption>
+          </figure>
+        </article>
+
+        <article class="lesson lesson-flip">
+          <div class="lesson-text">
+            <h3>Scales and arpeggios</h3>
+            <p>
+              Majors, all three minors, chromatic, pentatonic and blues scales, plus major, minor, dominant and diminished seventh arpeggios, in all
+              twelve keys. Hands alone, together or in contrary motion, with standard fingering printed over the notes.
+            </p>
+            <ul>
+              <li>Each scale has its own tempo ladder: four bpm faster after every clean run.</li>
+              <li>Scales you have played come back for review on a spaced schedule, sooner when they were shaky.</li>
+              <li>Hide the music and play from memory when you are ready.</li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img src="./img/ipad-scales.webp" width="1664" height="1524" loading="lazy" alt="A harmonic minor scale, hands together, with fingering above and below the staves, being learned at the player's own pace." />
+          </figure>
+        </article>
+      </section>
+
+      <section id="piano" class="piano">
+        <h2 class="section-title">Made for a real piano</h2>
+        <div class="piano-grid">
+          <div class="piano-item">
+            <h3>Measures your setup</h3>
+            <p>
+              Tap along with a click for a few seconds and the app measures how late your notes arrive and how late you hear the metronome,
+              including Bluetooth headphones on the piano. Timing is judged after that delay is removed.
+            </p>
+          </div>
+          <div class="piano-item">
+            <h3>Pairs over Bluetooth</h3>
+            <p>
+              USB and Bluetooth MIDI in Chrome and Edge. The iPad and Mac app pairs a Bluetooth piano from inside the app. No MIDI at hand? The
+              on-screen keys and your computer keyboard work too.
+            </p>
+          </div>
+          <div class="piano-item">
+            <h3>Hands stay on the keys</h3>
+            <p>
+              After an exercise, play C to try again, D for the next one, F or G for one level easier or harder. A tap on the sustain pedal starts
+              the metronome.
+            </p>
+          </div>
+        </div>
+        <figure class="shot shot-strip">
+          <img src="./img/shortcuts.webp" width="1600" height="294" loading="lazy" alt="The on-screen piano after an exercise, with Retry, Next, Close, Easier and Harder written on the keys C to G." />
+        </figure>
+      </section>
+
+      <section id="progress" class="progress">
+        <div class="progress-text">
+          <h2>Progress you can trust</h2>
+          <p>
+            Levels only count when the notes are right. Mastering a band takes several different passages at 90&nbsp;% or better, and experience
+            points grow with accuracy, not with how far you turn the slider up.
+          </p>
+          <p>
+            Every lesson keeps its own weak spots: notes per clef, intervals, rhythm figures with the milliseconds you rush them by, and scales by
+            tempo and review date. One click turns them into the next exercise.
+          </p>
+        </div>
+        <div class="progress-shots">
+          <img src="./img/progress-sight.webp" width="680" height="940" loading="lazy" alt="Sight-reading weak spots: notes F2 and B2 in the bass at 44% and 74%, and a heatmap of note accuracy for both clefs." />
+          <img src="./img/progress-rhythm.webp" width="680" height="1640" loading="lazy" alt="Rhythm statistics: accuracy per rhythm figure and per position in the bar, with the weakest figures and how early they are played." />
+          <img src="./img/progress-scales.webp" width="680" height="880" loading="lazy" alt="Scales list with each scale's tempo in notes per second and when it is due for review." />
+        </div>
+      </section>
+
+      <section class="principles">
+        <h2 class="section-title">How it teaches</h2>
+        <div class="principle-list">
+          <p><b>One skill at a time.</b> Reading, hearing, rhythm and technique are practised separately, so you always know what you are working on.</p>
+          <p><b>Accuracy before speed.</b> Tempo and level go up only on top of clean playing.</p>
+          <p>
+            <b>Always new material.</b> Reading and ear exercises are generated fresh. Scales are a fixed repertoire, kept fresh by shuffled keys and
+            spaced review.
+          </p>
+          <p><b>Only what a piano can tell.</b> Fingering is shown, never graded; everything that is graded comes from the notes you play.</p>
+        </div>
+        <p class="more">
+          The full teaching concept is
+          <a href="https://github.com/emrass/practice-piano/blob/main/docs/DIDACTICS.md">written down in the project</a>.
+        </p>
+      </section>
+
+      <section class="yours">
+        <div>
+          <h2>Yours, on your device</h2>
+          <p>
+            There is no sign-up. Your settings and progress stay in your browser, and you can export them as a file and import them anywhere. The
+            iPad and Mac app is built from the same code with Xcode and a free Apple ID.
+          </p>
+        </div>
+        <figure class="shot">
+          <img src="./img/dark.webp" width="1800" height="1388" loading="lazy" alt="The app in its dark theme, in self-paced sight reading." />
+        </figure>
+      </section>
+
+      <section class="closing">
+        <h2>Sit down at the piano and play something new.</h2>
+        <a class="button" href="https://app.practice-piano.com/">Open the app</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>practice-piano.com</p>
+      <p>
+        <a href="https://github.com/emrass/practice-piano">Source on GitHub</a>
+        <a href="https://github.com/emrass/practice-piano/blob/main/docs/NATIVE.md">Build the iPad and Mac app</a>
+      </p>
+    </footer>
+  </body>
+</html>
