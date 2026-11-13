@@ -631,10 +631,21 @@ main > .closing {
   color: var(--faint);
 }
 
-.site-footer p {
+.footer-about {
+  display: grid;
+  gap: 8px;
+  max-width: 40em;
+}
+
+.footer-privacy {
+  font-size: 15px;
+}
+
+.footer-links {
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
+  align-content: start;
 }
 
 /* Narrow screens */
