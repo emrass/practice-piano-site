@@ -1,0 +1,8 @@
+// Cloudflare Workers Builds: preview deployments of branches and pull requests.
+// Production stays on GitHub Pages (main, served as is). No build command.
+// Preview command: npx wrangler versions upload
+{
+  "name": "practice-piano-site",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "." }
+}
