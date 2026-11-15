@@ -9,7 +9,7 @@ directly ("Deploy from a branch", `/ (root)`); every push to `main` is live a mi
 `CNAME` holds the domain, `.nojekyll` tells Pages to serve the files as they are.
 
 Branches and pull requests get a preview deployment from Cloudflare Workers Builds
-(`wrangler.jsonc`, no build command, preview command `npx wrangler versions upload`).
+(`wrangler.jsonc`, no build command, preview command `npx wrangler preview`).
 `.assetsignore` keeps the repository's own files (README, CNAME, git metadata) out of the upload.
 
 Preview locally:
