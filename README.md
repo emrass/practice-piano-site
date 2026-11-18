@@ -19,8 +19,12 @@ python3 -m http.server 8090   # then open http://localhost:8090
 ```
 
 - `img/` — screenshots of the real app (WebP, captured at 2× from the app's dev build with
-  Playwright and its fake Web MIDI input). Retake them when the app's UI changes, and keep the
-  feature descriptions in `index.html` in step with the app.
+  Playwright and its fake Web MIDI input), and `og.png`, the image a shared link shows. All of
+  them come from the app's `npm run screenshots`, which writes into this folder when the two
+  repositories sit side by side. Retake them when the app's UI changes, and keep the feature
+  descriptions and alt texts in `index.html` in step with the app.
+- `favicon.svg` — a copy of the app's `public/favicon.svg`: the keys, drawn for 16px. The logo in
+  the header is the keys too, inlined from the app's `design/system/assets/Logos/practice-piano-keys.svg`.
 - `fonts/` — Newsreader (text) and Caveat (the hand-written feedback in the hero), both under
   the SIL Open Font License (see the `OFL-*.txt` files); self-hosted, so the page makes no
   third-party requests.
