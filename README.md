@@ -23,10 +23,17 @@ python3 -m http.server 8090   # then open http://localhost:8090
   them come from the app's `npm run screenshots`, which writes into this folder when the two
   repositories sit side by side. Retake them when the app's UI changes, and keep the feature
   descriptions and alt texts in `index.html` in step with the app.
-- `favicon.svg` — a copy of the app's `public/favicon.svg`: the keys, drawn for 16px. The logo in
-  the header is the keys too, inlined from the app's `design/system/assets/Logos/practice-piano-keys.svg`.
-- `fonts/` — Newsreader (text) and Caveat (the hand-written feedback in the hero), both under
-  the SIL Open Font License (see the `OFL-*.txt` files); self-hosted, so the page makes no
+- `tokens.css`, `site-fonts.css` — the design system's tokens and the Caveat faces, built in the
+  app repository and copied here by `scripts/sync-design.sh` (font paths pointed at `./fonts/`).
+  Do not edit them; `styles.css` uses their variables (`var(--surface-panel)`,
+  `font: var(--type-site-body)`), and the rules for this page are in the app's
+  `design/system/guides/02-layout.md`. After the design system changes, run
+  `sh scripts/sync-design.sh ../practice-piano` and commit the copies.
+- `favicon.svg` — a copy of the app's `public/favicon.svg` (the sync script copies it too): the
+  keys, drawn for 16px. The logo in the header is the keys as well, inlined from the app's
+  `design/system/assets/Logos/practice-piano-keys.svg`.
+- `fonts/` — Newsreader (text) and Caveat (the hand-written feedback in the hero), copied from the
+  app's design system, both under the SIL Open Font License (see the `OFL-*.txt` files); self-hosted, so the page makes no
   third-party requests.
 - The pencil marks in the hero are an SVG overlay in `index.html` whose `viewBox` matches
   `img/hero-scale.webp`; move them if that image changes.
